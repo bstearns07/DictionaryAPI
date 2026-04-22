@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student List</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Dictionary Lookup</h1>
+
+        <div class="row">
+            <label for="word">Enter a word:</label>
+            <input id="word" type="text">
+            <span id="error"></span>
+        </div>
+
+        <div class="row" id="response-error">
+
+        </div>
+
+        <div class="row">
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th id="word-header" colspan="3">Word:</th>
+                    </tr>
+                    <tr>
+                        <th id="origin-header" colspan="3">Origin:</th>
+                    </tr>
+                    <tr>
+                        <th>Part of Speech</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody id="definitions">
+                <!-- Definitions will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <button id="lookup">Lookup</button>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
