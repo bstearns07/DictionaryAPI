@@ -1,6 +1,6 @@
-"use strict";
+// import {response} from "express";
 
-import {response} from "express";
+"use strict";
 
 /**********************************************************************************************************
 * A Function that returns the first DOM element matching a given CSS selector
@@ -9,17 +9,16 @@ import {response} from "express";
 *
 *@returns {Element | null} The first DOM element matching the given selector, or null if none are found
 **********************************************************************************************************/
-const $ = (selector) => {
-    return document.querySelector(selector);
-}
+const $ = selector => document.querySelector(selector);
 
 // cache dom elements
-const lookupBtn = $(".lookup")
-const userInputEl = $(".word");
-const errorEl = $(".error");
-const responseErrEl = $(".response-error");
-const tableHeaderEl = $(".word-header");
-const tableBodyEl = $(".definitions");
+const lookupBtn = $("#lookup")
+const userInputEl = $("#word");
+const errorEl = $("#error");
+const responseErrEl = $("#response-error");
+const tableHeaderEl = $("#word-header");
+const originHeaderEl = $("#origin-header");
+const tableBodyEl = $("#definitions");
 
 /**********************************************************************************************************
 * A Function that handles the click event for the "Lookup" button
@@ -46,27 +45,40 @@ const lookupClick = async () => {
 
             // if the response was rejected throw an error
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error("Word not found");
             }
-        }
-        catch(e) {
-            responseErrEl.textContent = "Error finding word information: " + e.message;
-        }
 
-        // parse response into a JSON object, create a table row entry, and append to the table
-        const data = await response.json();
-        const row = document.createElement("tr");
-        tableHeaderEl.textContent = data.word;
-        row.innerHTML = `
-                <td>${data.meanings.partOfSpeech}</td>
-                <td>${student.name}</td>
-                <td>${student.grade}</td>
-            `;
+            const data = await response.json();
+
+            tableHeaderEl.textContent = "Word: " + data[0].word;
+            originHeaderEl.textContent = `Origin: ${data[0].origin || "Unknown"}`;
+            tableBodyEl.innerHTML = "";
+
+            data[0].meanings.forEach(meaning => {
+                meaning.definitions.forEach(def => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                    <td>${meaning.partOfSpeech}</td>
+                    <td>${def.definition}</td>
+                    <td>${def.example || "—"}</td>
+                `;
+
+                    tableBodyEl.appendChild(row);
+                });
+            });
+
+        } catch (e) {
+            responseErrEl.textContent = "Error: " + e.message;
+        }
     }
+    userInputEl.focus();
+    userInputEl.select();
 }
 
 // add click event handler when the DOM is loaded and Enter keypress support
 document.addEventListener("DOMContentLoaded", () => {
+    userInputEl.focus();
     lookupBtn.addEventListener("click", lookupClick);
     userInputEl.addEventListener("keydown", event => {
         if (event.key === "Enter") {
@@ -74,36 +86,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 })
-
-
-// async function loadStudents() {
-//
-//     try {
-//         status.textContent = "Loading...";
-//         studentBody.innerHTML = "";
-//
-//         const response = await fetch("/students");
-//
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-//
-//         const students = await response.json();
-//
-//         students.forEach(student => {
-//             const row = document.createElement("tr");
-//             row.innerHTML = `
-//                 <td>${student.id}</td>
-//                 <td>${student.name}</td>
-//                 <td>${student.grade}</td>
-//             `;
-//             studentBody.appendChild(row);
-//         });
-//
-//         status.textContent = `${students.length} students loaded!`;
-//
-//     } catch (error) {
-//         status.textContent = "Error loading students: " + error.message;
-//         console.error(error);
-//     }
-// }
