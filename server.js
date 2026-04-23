@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 
-// Serves the public folder automatically
+// Serves the public folder automatically + tailwind's output.css file
 app.use(express.static("public"));
+app.use("/src", express.static("src"));
 
 app.get("/:word", async (req, res) => {
 

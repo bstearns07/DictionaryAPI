@@ -6,7 +6,9 @@
     }
 
     h1 {
-        @apply text-3xl font-bold text-center mb-6;
+        @apply text-4xl sm:text-5xl font-extrabold tracking-tight
+        bg-linear-to-r from-cyan-500 to-blue-600
+        bg-clip-text text-transparent text-center leading-tight pb-1;
     }
 
     label {
@@ -17,20 +19,26 @@
         @apply border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
     }
 
-    button {
-        @apply bg-blue-600 text-white px-5 py-2 rounded-xl shadow hover:bg-blue-700 transition;
+    button{
+        @apply bg-blue-600 text-white px-4 py-2 rounded transition-transform duration-200 ease-out hover:scale-105
+        hover:bg-blue-700 active:bg-blue-800 cursor-pointer;
     }
 
+
     table {
-        @apply w-full border-collapse bg-white rounded-xl shadow overflow-hidden;
+        @apply w-full border-collapse bg-white rounded-xl shadow overflow-hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500;
+    }
+
+    tbody tr {
+        @apply hover:bg-blue-50 transition duration-200;
     }
 
     th {
-        @apply bg-gray-200 text-left px-4 py-2 font-semibold border-b;
+        @apply bg-gray-200 border-b px-4 py-2 font-semibold text-center;
     }
 
     td {
-        @apply px-4 py-2 border-b;
+        @apply px-4 py-2 border-b transition;
     }
 }
 
