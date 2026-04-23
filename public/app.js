@@ -29,7 +29,7 @@ const tableBodyEl = $("#definitions");
 *@returns {void}
  **********************************************************************************************************/
 const lookupClick = async () => {
-    const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+    const url = "/";
     // get user input
     const word = userInputEl.value;
 
@@ -41,7 +41,7 @@ const lookupClick = async () => {
     else {
         try {
             //call the api using a fetch to the api url with the user's word added to the url
-            const response = await fetch(url + word)
+            const response = await fetch(url + word);
 
             // if the response was rejected throw an error
             if (!response.ok) {
@@ -50,11 +50,11 @@ const lookupClick = async () => {
 
             const data = await response.json();
 
-            tableHeaderEl.textContent = "Word: " + data[0].word;
-            originHeaderEl.textContent = `Origin: ${data[0].origin || "Unknown"}`;
+            tableHeaderEl.textContent = "Word: " + data.word;
+            originHeaderEl.textContent = `Origin: ${data.origin || "Unknown"}`;
             tableBodyEl.innerHTML = "";
 
-            data[0].meanings.forEach(meaning => {
+            data.meanings.forEach(meaning => {
                 meaning.definitions.forEach(def => {
                     const row = document.createElement("tr");
 
