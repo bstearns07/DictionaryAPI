@@ -1,0 +1,62 @@
+﻿@import "tailwindcss";
+
+@layer base {
+    body {
+        @apply bg-gray-100 text-gray-800 font-sans p-6;
+    }
+
+    h1 {
+        @apply text-3xl font-bold text-center mb-6;
+    }
+
+    label {
+        @apply font-medium mr-2;
+    }
+
+    input {
+        @apply border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+    }
+
+    button {
+        @apply bg-blue-600 text-white px-5 py-2 rounded-xl shadow hover:bg-blue-700 transition;
+    }
+
+    table {
+        @apply w-full border-collapse bg-white rounded-xl shadow overflow-hidden;
+    }
+
+    th {
+        @apply bg-gray-200 text-left px-4 py-2 font-semibold border-b;
+    }
+
+    td {
+        @apply px-4 py-2 border-b;
+    }
+}
+
+@layer components {
+    .row {
+        @apply max-w-3xl mx-auto mb-6 flex items-center gap-3;
+    }
+
+    #response-error {
+        @apply text-red-600 font-medium max-w-3xl mx-auto;
+    }
+
+    #error {
+        @apply text-red-500 text-sm ml-2;
+    }
+
+    #studentTable {
+        @apply text-sm;
+    }
+
+    #lookup {
+        @apply mx-auto block;
+    }
+
+    #word-header,
+    #origin-header {
+        @apply text-lg font-bold bg-blue-100;
+    }
+}
