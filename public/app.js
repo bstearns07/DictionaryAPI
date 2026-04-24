@@ -1,4 +1,13 @@
-// import {response} from "express";
+/**********************************************************************************************************************
+ * Program............:Dictionary API
+ * Programmers........: Ben Stearns
+ * Date...............: 4-24-26
+ * GitHub Repo........: https://github.com/bstearns07/DictionaryAPI
+ * Program Summary....: a JavaScript web application that uses a node express server to serve an application that
+ *                      looks up the dictionary information of a word entered by the user. The server utilizes the
+ *                      Free Dictionary API to retrieve the dictionary information.
+ * File Description...: defines the logic and functionality for running the application interface
+ **********************************************************************************************************************/
 
 "use strict";
 
@@ -29,8 +38,11 @@ const tableBodyEl = $("#definitions");
 *@returns {void}
  **********************************************************************************************************/
 const lookupClick = async () => {
-    const url = "/";
-    // get user input
+
+    const url = "/";    // url for the server in the root of the project directory to handle api requests
+
+    // clear the screen of previous information and errors and get user input
+    ClearScreen();
     const word = userInputEl.value;
 
     // if the user didn't enter anything, display an error
@@ -43,17 +55,21 @@ const lookupClick = async () => {
             //call the api using a fetch to the api url with the user's word added to the url
             const response = await fetch(url + word);
 
-            // if the response was rejected throw an error
+            // for testing application without starting the server
+            //const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+
+            // if the request was rejected throw an error and break from the function
+            // otherwise parse the response into a JSON object for easier functionality
             if (!response.ok) {
                 throw new Error("Word not found");
             }
-
             const data = await response.json();
 
+            // Define the content of headers with the response data returned
             tableHeaderEl.textContent = "Word: " + data.word;
             originHeaderEl.textContent = `Origin: ${data.origin || "Unknown"}`;
-            tableBodyEl.innerHTML = "";
 
+            // loop through each definition meaning returned, create a table row for each entry, and append to table
             data.meanings.forEach(meaning => {
                 meaning.definitions.forEach(def => {
                     const row = document.createElement("tr");
@@ -67,13 +83,25 @@ const lookupClick = async () => {
                     tableBodyEl.appendChild(row);
                 });
             });
-
+        // catch any errors that may occur by displaying to the interface
         } catch (e) {
             responseErrEl.textContent = "Error: " + e.message;
         }
     }
-    userInputEl.focus();
-    userInputEl.select();
+    userInputEl.focus(); // shift focus back to user input element
+    userInputEl.select();// select all text for easier reuse
+}
+
+/**********************************************************************************************************
+ * A Function that clears the interface of any previous information and errors each time the Lookup
+ * button is pressed
+ *
+ * @returns {void}
+ **********************************************************************************************************/
+const ClearScreen = () => {
+    errorEl.textContent = "";
+    responseErrEl.textContent = "";
+    tableBodyEl.innerHTML = "";
 }
 
 // add click event handler when the DOM is loaded and Enter keypress support
