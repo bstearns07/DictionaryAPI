@@ -26,8 +26,10 @@ const userInputEl = $("#word");
 const errorEl = $("#error");
 const responseErrEl = $("#response-error");
 const tableHeaderEl = $("#word-header");
-const originHeaderEl = $("#origin-header");
+const pronunciationHeaderEl = $("#pronunciation-header");
 const tableBodyEl = $("#definitions");
+const pronunciationText = document.getElementById("pronunciation-text");
+const playBtn = document.getElementById("play-audio");
 
 /**********************************************************************************************************
 * A Function that handles the click event for the "Lookup" button
@@ -38,8 +40,8 @@ const tableBodyEl = $("#definitions");
 *@returns {void}
  **********************************************************************************************************/
 const lookupClick = async () => {
-
     const url = "/";    // url for the server in the root of the project directory to handle api requests
+    let currentAudio = null;
 
     // clear the screen of previous information and errors and get user input
     ClearScreen();
@@ -65,9 +67,30 @@ const lookupClick = async () => {
             }
             const data = await response.json();
 
+            // get the pronunciation text and url for the audio file if found
+            const phoneticText = data.phonetics?.find(p => p.text)?.text;
+            const audioURL = data.phonetics?.find(p => p.audio)?.audio;
+
+            // if an audio url was found, reveal the play button and create a click event for it
+            if (audioURL) {
+                playBtn.classList.remove("hidden");
+                playBtn.onclick = () => {
+                    // if audio is still playing, pause it and rewind to the beginning
+                    if (currentAudio) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0;
+                    }
+                    //create an audio object from the url and play it
+                    currentAudio = new Audio(audioURL);
+                    currentAudio.play();
+                };
+            } else {
+                playBtn.classList.add("hidden");
+            }
+
             // Define the content of headers with the response data returned
             tableHeaderEl.textContent = "Word: " + data.word;
-            originHeaderEl.textContent = `Origin: ${data.origin || "Unknown"}`;
+            pronunciationText.textContent = `Pronunciation: ${phoneticText|| "None Found"}`;
 
             // loop through each definition meaning returned, create a table row for each entry, and append to table
             data.meanings.forEach(meaning => {
@@ -102,6 +125,22 @@ const ClearScreen = () => {
     errorEl.textContent = "";
     responseErrEl.textContent = "";
     tableBodyEl.innerHTML = "";
+}
+
+function createAudioButton(audioUrl) {
+    if (!audioUrl) return '—';
+
+    return `
+        <button onclick="playAudio('${audioUrl}')" 
+            class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded">
+            ▶
+        </button>
+    `;
+}
+
+function playAudio(url) {
+    const audio = new Audio(url);
+    audio.play();
 }
 
 // add click event handler when the DOM is loaded and Enter keypress support

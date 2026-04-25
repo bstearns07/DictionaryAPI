@@ -33,10 +33,11 @@ app.get("/:word", async (req, res) => {
         }
 
         const data = await response.json();
+        console.log(data);
 
         res.json({
             word: data[0].word,
-            origin: data[0].origin,
+            phonetics: data[0].phonetics,
             meanings: data[0].meanings,
         });
     }
