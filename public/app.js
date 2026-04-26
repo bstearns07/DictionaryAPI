@@ -121,22 +121,7 @@ const ClearScreen = () => {
     errorEl.textContent = "";
     responseErrEl.textContent = "";
     tableBodyEl.innerHTML = "";
-}
-
-function createAudioButton(audioUrl) {
-    if (!audioUrl) return '—';
-
-    return `
-        <button onclick="playAudio('${audioUrl}')" 
-            class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded">
-            ▶
-        </button>
-    `;
-}
-
-function playAudio(url) {
-    const audio = new Audio(url);
-    audio.play();
+    pronunciationText.textContent = "Pronunciation: -";
 }
 
 // add click event handler when the DOM is loaded and Enter keypress support
