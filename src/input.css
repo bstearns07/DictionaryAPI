@@ -19,7 +19,7 @@
     h1 {
         @apply text-4xl sm:text-5xl font-extrabold tracking-tight
         bg-linear-to-r from-cyan-500 to-blue-600
-        bg-clip-text text-transparent text-center leading-tight pb-1;
+        bg-clip-text text-transparent text-center leading-tight pb-1 mb-1;
     }
 
     label {
