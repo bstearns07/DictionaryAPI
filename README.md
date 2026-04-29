@@ -58,8 +58,11 @@ Follow the steps below to run the application locally.
 ---
 
 ## 🚀 Live Demo
-[![Open Demo](https://img.shields.io/badge/▶%20Open%20Live%20Demo-ff4b4b?style=for-the-badge)](https://dictionaryapi-5dly.onrender.com)
-![Smartwatch FAQ Demo](assets/demo.gif)<br>
+> ⬇️ **Click the link below to open the app in your browser and try it yourself!**⬇️
+
+👉 [![Open Demo](https://img.shields.io/badge/▶%20Open%20Live%20Demo-ff4b4b?style=for-the-badge)](https://dictionaryapi-5dly.onrender.com)
+
+![Smartwatch FAQ Demo](assets/demo.gif)
 
 ---
 
