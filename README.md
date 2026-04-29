@@ -9,17 +9,20 @@
 ## 👤 Author
 Ben Stearns - [@bstearns07](https://github.com/bstearns07)
 
+📅 Date: 4/25/2026
+
 ---
 
 ## 📑 Table of Contents
-- [📌 Summary](#-summary)
-- [⚙️ How It Works](#-how-it-works)
-- [🚀 Live Demo](#-live-demo)
-- [✨ Features](#-features)
-- [🧰 Tech Stack](#-tech-stack)
-- [🧠 Topics Covered](#-topics-covered)
-- [📘 What I Learned](#-what-i-learned)
-- [🖼 Screenshots](#-screenshots)
+- 📌 [Summary](#-summary)
+- ⭐ [How It Works](#-how-it-works)
+- ✨ [Features](#-features)
+- 🧰 [Tech Stack](#-tech-stack)
+- 🔧 [Development Tools](#-development-tools)
+- 🧩 [Core Concepts](#-core-concepts)
+- 📝 [New Topics Covered](#-new-topics-covered)
+- 📘 [What I Learned](#-what-i-learned)
+- 🖼 [Screenshots](#-screenshots)
 
 ---
 
@@ -35,7 +38,7 @@ For full program details, refer to [Program Requirements](./assets/ProgramInstru
 
 ---
 
-## ⚙️ How It Works
+## ⭐ How It Works
 Follow the steps below to run the application locally.
 
 ### 🚀 Start the Server
@@ -88,14 +91,14 @@ Follow the steps below to run the application locally.
 - Node Express Web Applications
 - Data Validation
 
-### 🛠 Development Tools
+### 🔧 Development Tools
 - Git & GitHub
 - WebStorm
 - Free Dictionary API
 
 ---
 
-## 🧠 Topics Covered
+## 📝 New Topics Covered
 - Making API requests and parsing the responses into usable data
 - Validating against errors that make occurs during API requests
 - Providing default responses if certain data elements didn't return anything from the API
@@ -106,7 +109,7 @@ Follow the steps below to run the application locally.
 ---
 
 ## 📘 What I Learned
-
+I've always found APIs really cool to work with and an essential skill to learn to work with for any developer. This was my first project using an API to retrieve data for a JavaScript program.  This involve using the fetch() function to send the request and properly parsing the information into usable JSON objects. I also learned how to develope a node express server to handle the API requests instead of doing so directly in main code. I've never worked with Audio objects in JavaScript either, so this was cool to do in order to make a mini audio player to play the sound file url returned. This was also my first time hosting an application on Render, so this was very interesting to learn about. All-in-all this was a very fun project that I enjoyed putting together.
 
 ---
 
