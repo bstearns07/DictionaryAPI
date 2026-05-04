@@ -59,6 +59,8 @@ const lookupClick = async () => {
             /* if the request was rejected throw an error and break from the function
                otherwise parse the response into a JSON object for easier functionality*/
             if (!response.ok) {
+                tableHeaderEl.textContent = "Word:";
+                playBtn.classList.add("hidden");
                 throw new Error("Word not found");
             }
             const data = await response.json();

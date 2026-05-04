@@ -64,6 +64,18 @@
 }
 
 @layer components {
+    .main {
+        background-color: #f9fafb;           /* very light gray */
+        border-radius: 1rem;                 /* smooth rounded corners */
+        padding: 2rem;                      /* inner spacing */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);  /* subtle base shadow */
+        transition: all 0.25s ease;         /* smooth hover animation */
+    }
+
+    .main:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);   /* deeper shadow on hover */
+    }
+
     .row {
         @apply max-w-3xl mx-auto mb-6 flex items-center gap-3;
     }
