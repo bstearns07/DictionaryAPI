@@ -34,7 +34,7 @@ server listening on the backend to serve everything up, just type the word you w
 it. How does it do that? Courtesy of the good old [Free Dictionary API](https://dictionaryapi.dev/?ref=freepublicapis.com).
 Feel free to check it out.
 
-For full program details, refer to [Program Requirements](./assets/ProgramInstructions.pdf)
+For full program details, refer to [Program Requirements](./assets/AssignmentInstructions.pdf)
 
 ---
 
