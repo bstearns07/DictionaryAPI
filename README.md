@@ -49,8 +49,6 @@ Follow the steps below to run the application locally.
 1. Enter the word you want to search for in the input field.
 2. Click **Lookup** or press **Enter** to submit your search.
 
----
-
 ### 📊 View Results
 1. If the word is not found or an error occurs, an error message will be displayed.
 2. If the word is found, its details will appear in a results table below.
