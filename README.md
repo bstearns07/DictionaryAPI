@@ -79,7 +79,7 @@ Follow the steps below to run the application locally.
 
 ### 🖥 Frontend
 - HTML5 (Semantic Markup)
-- CSS3 (Layout & Styling)
+- Tailwind CSS (Layout & Styling)
 - Vanilla JavaScript (ES6+)
 
 ### 🖥 Backend
