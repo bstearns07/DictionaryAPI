@@ -42,19 +42,18 @@ For full program details, refer to [Program Requirements](./assets/ProgramInstru
 Follow the steps below to run the application locally.
 
 ### 🚀 Start the Server
-1. Run `server.js` or use your IDE’s Node/Express terminal command to start the server.
+1. Run `server.js` using your IDE's Run button or running the "node server" command from your IDE's terminal
 2. Open your browser and navigate to: http://localhost:3000
 
 ### 🔎 Submit a Word
 1. Enter the word you want to search for in the input field.
 2. Click **Lookup** or press **Enter** to submit your search.
 
----
-
 ### 📊 View Results
 1. If the word is not found or an error occurs, an error message will be displayed.
 2. If the word is found, its details will appear in a results table below.
 3. If pronunciation audio is available, click the **▶ Play** button to listen.
+
 ---
 
 ## 🚀 Live Demo
@@ -87,17 +86,21 @@ Follow the steps below to run the application locally.
 - Node Express API server
 - [Free Dictionary API](https://dictionaryapi.dev/?ref=freepublicapis.com)
 
+---
+
+## 🔧 Development Tools
+- Git & GitHub
+- WebStorm
+- Free Dictionary API
+
+---
+
 ### 🧩 Core Concepts
 - API requests
 - API error handling
 - API Data handling
 - Node Express Web Applications
 - Data Validation
-
-### 🔧 Development Tools
-- Git & GitHub
-- WebStorm
-- Free Dictionary API
 
 ---
 
