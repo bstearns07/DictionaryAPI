@@ -86,17 +86,21 @@ Follow the steps below to run the application locally.
 - Node Express API server
 - [Free Dictionary API](https://dictionaryapi.dev/?ref=freepublicapis.com)
 
+---
+
+## 🔧 Development Tools
+- Git & GitHub
+- WebStorm
+- Free Dictionary API
+
+---
+
 ### 🧩 Core Concepts
 - API requests
 - API error handling
 - API Data handling
 - Node Express Web Applications
 - Data Validation
-
-### 🔧 Development Tools
-- Git & GitHub
-- WebStorm
-- Free Dictionary API
 
 ---
 
